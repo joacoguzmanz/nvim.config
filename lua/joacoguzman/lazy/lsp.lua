@@ -31,6 +31,7 @@ return {
                 "tailwindcss",
                 "somesass_ls",
                 "pyright",
+                "csharp_ls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -66,6 +67,14 @@ return {
                                 }
                             }
                         }
+                    }
+                end,
+                ["csharp_ls"] = function()
+                    require("lspconfig").csharp_ls.setup {
+                        capabilities = capabilities,
+                        init_options = {
+                            AutomaticWorkspaceInit = true,
+                        },
                     }
                 end,
             }
