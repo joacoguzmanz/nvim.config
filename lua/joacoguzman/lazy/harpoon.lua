@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
     },
-    config = function ()
+    config = function()
         local harpoon = require("harpoon")
         harpoon:setup()
 
@@ -40,5 +40,9 @@ return {
         vim.keymap.set("n", "<leader>te", function()
             toggle_telescope(harpoon:list())
         end, { desc = "Open Harpoon Telescope picker" })
+
+        vim.keymap.set("n", "<leader>hr", function()
+            require("harpoon.mark").rm_file()
+        end, { desc = "Remove current file from Harpoon" })
     end
 }
